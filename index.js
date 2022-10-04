@@ -125,7 +125,7 @@ app.post('/first-partner', async (request, response) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "x-api-key": apiKey,
+      "x-api-key": process.env.API_KEY,
     },
     body: JSON.stringify(data),
   }
