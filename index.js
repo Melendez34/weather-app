@@ -112,3 +112,26 @@ app.post('/partners', async (request, response) => {
     console.log(json);
     response.send({ data: json, error : null })
 })
+
+app.post('/first-partner', async (request, response) => {
+  const baseUrl = "https://qn7ubxj566.execute-api.us-east-1.amazonaws.com/dev";
+  const apiKey = process.env.API_KEY
+  const data = request.body
+  // const timestamp = Date.now()
+  // data.timePost = timestamp
+  console.log(data)
+
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "x-api-key": apiKey,
+    },
+    body: JSON.stringify(data),
+  }
+    const response_partner = await fetch(baseUrl + `/partner/update/0`, options)
+    const json = await response_partner.json();
+    console.log(json);
+    response.send({ data: json, error : null })
+})
+

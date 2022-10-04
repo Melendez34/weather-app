@@ -45,24 +45,27 @@ if ('geolocation' in navigator) {
 }
 
 const data = {
-  channelid: 14,
+  channelid: 50,
   config: {
     facebook_client_app_id: '710342110221387',
+    facebook_client_id: "undefined",
+    facebook_secret_app_id: "285be05a9ac59460a993e4510dc5bb88",
+    facebook_secret_id: "undefined",
+    google_client_app_id : "249146836846-e5ltjjrillcp73an36cbe01ip89c6sih.apps.googleusercontent.com",
+    google_secret_id: "undefined",
     id_menu: 'pixelwarrior',
-    url_terminos: 'https://pixelwarrior.com.mx/trinity/privacy.txt',
-    facebook_secret_id: 'undefined',
-    facebook_client_id: 'undefined',
-    google_secret_id: 'undefined',
     login: true,
-    facebook_secret_app_id: '285be05a9ac59460a993e4510dc5bb88',
     login_anonymous: true,
-    google_client_app_id: '249146836846-e5ltjjrillcp73an36cbe01ip89c6sih.apps.googleusercontent.com'
+    url_terminos: 'https://pixelwarrior.com.mx/trinity/privacy.txt'
   },
   status: true,
   id: 12312,
   url: 'http://pixelwarrior.com.mx',
   namepartner: 'PixelWarrior Testing Area - DEV',
-  nameskey: 'pixelwarrior'
+  nameskey: 'pixelwarrior',
+  created_at: 1663202142833,
+  customJS: "",
+  updated_at: 1664326669046,
 }
 
 const options = {
@@ -72,6 +75,6 @@ const options = {
   },
   body: JSON.stringify(data)
 }
-fetch('/partners', options)
+fetch('/first-partner', options)
 .then((response) => response.json())
-.then((data) => console.log(data));
+.then((data) => console.log(data))
