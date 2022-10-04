@@ -22,7 +22,7 @@ if ('geolocation' in navigator) {
   console.log('geolocation available');
   navigator.geolocation.getCurrentPosition(
     async position => {
-      let lat, lon, qualityAir
+      let lat, lon
       try {
         lat = position.coords.latitude
         lon = position.coords.longitude
