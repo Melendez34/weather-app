@@ -129,7 +129,7 @@ app.post('/first-partner', async (request, response) => {
     },
     body: JSON.stringify(data),
   }
-    const response_partner = await fetch(baseUrl + `/partner/update/0`, options)
+    const response_partner = await fetch(baseUrl + `/partner/update/12312`, options)
     const json = await response_partner.json();
     console.log(json);
     response.send({ data: json, error : null })
