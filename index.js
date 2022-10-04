@@ -54,19 +54,19 @@ app.get('/weather/:latlon', async (request, response) => {
   let value, unit
   try {
     // openAQ
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json'
-    }
-  };
-  const url_openaq = `https://api.openaq.org/v1/latest?coordinates=${lat},${lon}&sort=desc`
-  const response_openqa = await fetch(url_openaq, options)
-  const openqa_data = await response_openqa.json()
-  value = openqa_data.results[0].measurements[0].value
-  unit = openqa_data.results[0].measurements[0].unit
-  console.log(openqa_data)
-  // response.send({ server_latlng: {latitude: lat, longitude:lon}, aq: openqa_data})
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json'
+      }
+    };
+    const url_openaq = `https://api.openaq.org/v1/latest?coordinates=${lat},${lon}&sort=desc`
+    const response_openqa = await fetch(url_openaq, options)
+    const openqa_data = await response_openqa.json()
+    value = openqa_data.results[0].measurements[0].value
+    unit = openqa_data.results[0].measurements[0].unit
+    console.log(openqa_data)
+    // response.send({ server_latlng: {latitude: lat, longitude:lon}, aq: openqa_data})
   } catch (error) {
     console.error(error);
   }
