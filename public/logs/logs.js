@@ -11,7 +11,6 @@ async function getData() {
     position.textContent = `position: ${item.latitude}°, ${item.longitude}°`
     const dateString = new Date(item.timestamp).toLocaleString()
     date.textContent = dateString
-    img.alt = 'silly images selfie app'
     root.id = 'container'
 
     root.append(date, position, br)
