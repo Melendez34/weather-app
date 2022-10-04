@@ -22,16 +22,23 @@ if ('geolocation' in navigator) {
   console.log('geolocation available');
   navigator.geolocation.getCurrentPosition(
     async position => {
-      lat = position.coords.latitude
-      lon = position.coords.longitude
-      document.getElementById('latitude').textContent = lat.toFixed(2)
-      document.getElementById('longitude').textContent = lon.toFixed(2)
-
-      const url_api_weather = `weather/${lat},${lon}`
-      //const url_api_weather = `/weather`
-      const response = await fetch(url_api_weather)
-      const json = await response.json()
-      console.log(json)
+      let lat, lon, qualityAir
+      try {
+        lat = position.coords.latitude
+        lon = position.coords.longitude
+        document.getElementById('latitude').textContent = lat.toFixed(2)
+        document.getElementById('longitude').textContent = lon.toFixed(2)
+  
+        const url_api_weather = `weather/${lat},${lon}`
+        //const url_api_weather = `/weather`
+        const response = await fetch(url_api_weather)
+        const json = await response.json()
+        console.log(json)
+        const qualityAir = json.qualityAir
+        console.log(qualityAir)
+      } catch (error) {
+        console.error(error);
+      }
 
       
     })
@@ -59,7 +66,8 @@ const data = {
   namepartner: 'PixelWarrior Testing Area - DEV',
   nameskey: 'pixelwarrior'
 }
-console.log(data);
+console.log(data)
+
 const options = {
   method: 'POST',
   headers: {
