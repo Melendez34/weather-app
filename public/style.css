@@ -1,0 +1,21 @@
+h1 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+}
+
+#container {
+  display: flex;
+  padding: 20px;
+  background-color: #ff8e24;
+  flex-direction: column;
+  align-items: center;
+  width: 320px;
+}
+#container div {
+  justify-content: center;
+}
+
+#menu {
+  padding-bottom: 20px;
+
+}
