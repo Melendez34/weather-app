@@ -35,7 +35,7 @@ app.get('/weather/:latlon', async (request, response) => {
   /* const message = {
     method: 'GET',
     headers: {
-      'X-RapidAPI-Key': 'e2a3e24bd6mshf4c4734e8356d7bp149635jsn558b85c0881e',
+      'X-RapidAPI-Key': process.env.RAPID,
       'X-RapidAPI-Host': 'google-maps-geocoding.p.rapidapi.com'
     }
   }
