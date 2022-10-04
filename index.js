@@ -51,8 +51,9 @@ app.get('/weather/:latlon', async (request, response) => {
   console.log(json_quotes.body)
   const author = json_quotes.author
   const quote = json_quotes.body
-
-  // openAQ
+  let value, unit
+  try {
+    // openAQ
   const options = {
     method: 'GET',
     headers: {
@@ -62,10 +63,13 @@ app.get('/weather/:latlon', async (request, response) => {
   const url_openaq = `https://api.openaq.org/v1/latest?coordinates=${lat},${lon}&sort=desc`
   const response_openqa = await fetch(url_openaq, options)
   const openqa_data = await response_openqa.json()
-  const value = openqa_data.results[0].measurements[0].value
-  const unit = openqa_data.results[0].measurements[0].unit
-  // console.log(openqa_data)
+  value = openqa_data.results[0].measurements[0].value
+  unit = openqa_data.results[0].measurements[0].unit
+  console.log(openqa_data)
   // response.send({ server_latlng: {latitude: lat, longitude:lon}, aq: openqa_data})
+  } catch (error) {
+    console.error(error);
+  }
 
   // partners GET
   const baseUrl = "https://qn7ubxj566.execute-api.us-east-1.amazonaws.com/dev";
@@ -103,7 +107,7 @@ app.post('/partners', async (request, response) => {
     },
     body: JSON.stringify(data),
   }
-    const response_partner = await fetch(baseUrl + `/partner/update/0`, options)
+    const response_partner = await fetch(baseUrl + `/partner`, options)
     const json = await response_partner.json();
     console.log(json);
     response.send({ data: json, error : null })

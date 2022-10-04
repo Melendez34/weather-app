@@ -34,8 +34,6 @@ if ('geolocation' in navigator) {
         const response = await fetch(url_api_weather)
         const json = await response.json()
         console.log(json)
-        const qualityAir = json.qualityAir
-        console.log(qualityAir)
       } catch (error) {
         console.error(error);
       }
@@ -66,7 +64,6 @@ const data = {
   namepartner: 'PixelWarrior Testing Area - DEV',
   nameskey: 'pixelwarrior'
 }
-console.log(data)
 
 const options = {
   method: 'POST',
