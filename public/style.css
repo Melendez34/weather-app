@@ -19,3 +19,16 @@ h1 {
   padding-bottom: 20px;
 
 }
+.data-partner {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 80%;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+#data-partner {
+  width: auto;
+  color: #000c0c;
+}
